@@ -29,5 +29,5 @@ services:
     volumes:
       - './site-content:/usr/share/nginx/html'
     ports:
-      - '8888:80'k
+      - '8888:80'
          
