@@ -1,0 +1,33 @@
+networks:
+  tony_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.21.7.0/24"
+
+services:
+  mysql_service:
+    image: mysql/mysql-server:8.0.32
+    networks:
+      tony_net:
+        ipv4_address: 172.21.7.7
+    container_name: mysql-container
+    restart: unless-stopped
+    environment:
+      -  MYSQL_ROOT_PASSWORD=tony
+      -  MYSQL_ROOT_HOST=% 
+    ports:
+      - '33306:3306'
+          
+  web:
+    image: nginx
+    networks:
+      tony_net:
+        ipv4_address: 172.21.7.9
+    container_name: nginx-container
+    restart: unless-stopped
+    volumes:
+      - './site-content:/usr/share/nginx/html'
+    ports:
+      - '8888:80'
+         
