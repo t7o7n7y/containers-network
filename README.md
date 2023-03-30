@@ -2,7 +2,7 @@
 
 # Clone this repository:
 ```
-https://github.com/t7o7n7y/containers-network.git
+git clone https://github.com/t7o7n7y/containers-network.git
 ```
 # Run command:
 ```
